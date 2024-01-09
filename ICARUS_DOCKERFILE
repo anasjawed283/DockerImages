@@ -1,0 +1,16 @@
+# Use a base image with Python and ICARUS compiler installed
+FROM python:3.8
+
+# Install any additional dependencies required by your Python code
+# For example, if your Python code requires specific packages, install them here
+RUN pip install numpy
+
+# Copy ICARUS compiler and Python code into the container
+COPY icarus_compiler /app/icarus_compiler
+COPY your_python_code.py /app/your_python_code.py
+
+# Set the working directory
+WORKDIR /app
+
+# Run your Python code using the ICARUS compiler
+CMD ["python", "your_python_code.py"]
